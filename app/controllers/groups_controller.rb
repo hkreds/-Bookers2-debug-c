@@ -18,6 +18,12 @@ class GroupsController < ApplicationController
   end
   
   def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to groups_path
+    else
+      render "edit"
+    end
   end
 
   def index
@@ -31,7 +37,7 @@ class GroupsController < ApplicationController
   private
   
   def group_params
-    params.require(:group).permit(:name,:introduction,:group_image,:owner_id)
+    params.require(:group).permit(:name,:introduction,:image,:owner_id)
   end
     
 end
