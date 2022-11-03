@@ -14,12 +14,15 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:id])
   end
   
   def update
   end
 
   def index
+    @groups = Group.all
+    @book = Book.new
   end
 
   def show
@@ -28,7 +31,7 @@ class GroupsController < ApplicationController
   private
   
   def group_params
-    params.require(:group).permit(:name,:introduction,:image,:owner_id)
+    params.require(:group).permit(:name,:introduction,:group_image,:owner_id)
   end
     
 end
