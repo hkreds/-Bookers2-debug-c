@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
   end
   
-  resources :groups do
+  resources :groups, except: [:destroy] do
     resources :group_users, only: [:create, :destroy]
   end
 
