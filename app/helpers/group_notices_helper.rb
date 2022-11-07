@@ -1,0 +1,2 @@
+module GroupNoticesHelper
+end

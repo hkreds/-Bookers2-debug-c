@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   
   resources :groups, except: [:destroy] do
     resources :group_users, only: [:create, :destroy]
+    resources :group_notices, only: [:new, :create]
+    get "group_notices" => "group_notices#sent"
   end
 
   devise_scope :user do
